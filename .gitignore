@@ -1,0 +1,6 @@
+env/mongo.env
+env/api.env
+
+api/node_modules
+api/package-lock.json
+api/yarn.lock
