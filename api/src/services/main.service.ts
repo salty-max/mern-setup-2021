@@ -44,6 +44,28 @@ export class MainService {
     }
   }
 
+  public async updatePokemon(req: Request, res: Response) {
+    const pokemonId = req.params.id;
+
+    try {
+      const pokemon = await Pokemon.findByIdAndUpdate(pokemonId, req.body);
+
+      if (pokemon) {
+        res
+          .status(201)
+          .json({ message: 'Pokemon updated', pokemon });
+        console.log('✅ UPDATED POKEMON'); 
+      }
+    } catch(err) {
+      console.log('❌ ERROR UPDATING POKEMON');
+      console.error(err.message);
+      res
+        .status(500)
+        .json({ message: 'Failed to update pokemon' })
+
+    }
+  }
+
   public async deletePokemon(req: Request, res: Response) {
     const pokemonId = req.params.id;
 
