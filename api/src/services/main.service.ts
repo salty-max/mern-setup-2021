@@ -43,4 +43,24 @@ export class MainService {
         .json({ message: 'Failed to save pokemon' })
     }
   }
+
+  public async deletePokemon(req: Request, res: Response) {
+    const pokemonId = req.params.id;
+
+    try {
+      const pokemon = await Pokemon.findByIdAndDelete(pokemonId);
+      if (pokemon) {
+        res
+          .status(200)
+          .json({ message: `Deleted ${pokemon.id}` });
+        console.log('✅ DELETED POKEMON')
+      }
+    } catch(err) {
+      console.log('❌ ERROR DELETING POKEMON')
+      console.error(err.message);
+      res
+        .status(500)
+        .json({ message: 'Failed to delete pokemon' })
+    }
+  }
 }
