@@ -23,6 +23,18 @@ services:
       - /usr/app/node_modules
     depends_on: 
       - mongoDB
+  
+  client:
+    build: ./client
+    ports:
+      - 3000:3000
+    env_file: 
+      - ./env/client.env
+    volumes:
+      - ./client/src:/usr/app/src
+      - /usr/app/node_modules
+    depends_on: 
+      - api
 
 volumes:
   data:

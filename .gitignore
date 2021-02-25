@@ -1,6 +1,7 @@
+.DS_Store
 env/mongo.env
 env/api.env
-.DS_Store
+env/client.env
 
 api/node_modules
 api/package-lock.json
