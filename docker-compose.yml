@@ -19,10 +19,22 @@ services:
       - ./env/api.env
     volumes:
       - logs:/usr/app/src/logs
-      - ./api/src:/usr/app/src
+      - ./api/src:/usr/app/src:ro,cached
       - /usr/app/node_modules
     depends_on: 
       - mongoDB
+  
+  client:
+    build: ./client
+    ports:
+      - 3000:3000
+    env_file: 
+      - ./env/client.env
+    volumes:
+      - ./client/src:/usr/app/src:ro,cached
+      - /usr/app/node_modules
+    depends_on: 
+      - api
 
 volumes:
   data:
