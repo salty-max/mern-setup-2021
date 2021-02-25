@@ -11,7 +11,6 @@ module.exports = {
     },
     fontFamily: {
       sans: ['Nunito', 'sans-serif'],
-      jp: ['Hachi Maru Pop', 'sans-serif'],
     },
     colors: {
       green: {

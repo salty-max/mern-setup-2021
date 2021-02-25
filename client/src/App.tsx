@@ -41,8 +41,8 @@ function App() {
   return (
     <div className="w-screen">
       <main className="bg-gray-lightest h-screen p-6">
-        <h1 className="font-bold font-jp text-pink text-5xl pb-6">
-          <span className="mr-4">関東に要こそ</span>
+        <h1 className="font-bold text-gray-darkest text-4xl pb-6">
+          <span className="mr-4">Welcome to Kanto！</span>
         </h1>
         <div className="grid grid-cols-6 gap-6">
           {pokemons.length > 0 &&

@@ -19,7 +19,7 @@ services:
       - ./env/api.env
     volumes:
       - logs:/usr/app/src/logs
-      - ./api/src:/usr/app/src
+      - ./api/src:/usr/app/src:ro,cached
       - /usr/app/node_modules
     depends_on: 
       - mongoDB
@@ -31,7 +31,7 @@ services:
     env_file: 
       - ./env/client.env
     volumes:
-      - ./client/src:/usr/app/src
+      - ./client/src:/usr/app/src:ro,cached
       - /usr/app/node_modules
     depends_on: 
       - api
